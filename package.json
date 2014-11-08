@@ -24,5 +24,28 @@
     "baucis-swagger": "^1.0.0-prerelease.1",
     "express": "^4.10.1",
     "mongoose": "^3.8.18"
+  },
+  "devDependencies": {
+    "bower": "latest",
+    "browserify-shim": "latest",
+    "grunt": "latest",
+    "grunt-browserify": "latest",
+    "grunt-cli": "latest",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-stylus": "latest",
+    "grunt-hashres": "latest",
+    "uglifyify": "latest",
+    "grunt-browser-sync": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-notify": "latest"
+  },
+  "scripts": {
+    "prepublish": "bower install --config.interactive=false && grunt",
+    "build": "grunt"
+  },
+  "browserify-shim": {
+    "jquery": "global:$"
   }
 }
