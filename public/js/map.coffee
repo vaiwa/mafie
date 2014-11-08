@@ -36,6 +36,8 @@ module.exports = () ->
 			color = 'green'
 
 			coordFocus = e.latlng
+			onMapClick coordFocus
+
 			ad =
 				location: coordinates: coordFocus
 				radius: 500
@@ -63,11 +65,9 @@ module.exports = () ->
 
 	displayMe: (coord) ->
 		markerMe = L.marker(coord, {icon: icons.red()})
-		.on 'click', () ->
-			console.log 'TODO'
 		.addTo(map)
-
-
+		.on 'click', () ->
+			console.log 'Its Me =)'
 
 
 	addAd: (ad, color = 'blue') ->
