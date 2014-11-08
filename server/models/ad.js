@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 module.exports = new mongoose.Schema({
-	location: { type: Schema.Types.ObjectId, ref: 'location', required: true },
+	location: { type: [Number], index: '2dsphere'},
 	creation_date: { type: Date, default: Date.now },
 	date: { type: Date, default: Date.now },
 	text: { type: String },
