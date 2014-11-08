@@ -18,3 +18,5 @@ app.use('/api', baucis());
 app.use(express.static('public'));
 
 app.listen(8060);
+
+module.exports = app;
