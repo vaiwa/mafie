@@ -17,13 +17,19 @@ var entries = [
 ]
 
 var Dashboard = React.createClass({
+	handleMapClick: function(location) {
+		console.log(location)
+	},
+	handleMarkerClick: function(id) {
+		console.log(id)
+	},
 
 	render: function() {
 		return (
 			<div>
 				<Filter />
 				<Map />
-				<Listing entries={entries}/>
+				<Listing entries={entries} onMapClick={this.handleMapClick} onMarkerClick={this.handleMarkerClick} />
 			</div>
 		)
 	}

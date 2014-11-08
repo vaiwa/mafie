@@ -21,6 +21,17 @@ var ADS = [
 
 var Map = React.createClass({
 
+	initialize: function() {
+		var that = this
+
+		LeafletMap.onMapClick(function(location) {
+			that.props.handlerMapClick(location)
+		})
+		LeafletMap.onMarkerClick(function(id) {
+			that.props.handlerMarkerClick(id)
+		})
+	},
+
 	componentDidMount: function() {
 		LeafletMap.init(this.getDOMNode())
 		LeafletMap.setMyCoord(PRAHA.coordinates)
