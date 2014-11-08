@@ -4,7 +4,8 @@
 
 var React = require('react')
 
-var Filter = require('./filter.jsx')
+var FilterSport = require('./filterSport.jsx')
+var FilterLocation = require('./filterLocation.jsx')
 var Map = require('./map.jsx')
 var Listing = require('./listing.jsx')
 
@@ -56,6 +57,9 @@ var Dashboard = React.createClass({
 	handleFilterSportChange: function(sport) {
 		this.setState({ entries: this.getEntriesBySport(sport) })
 	},
+	handleFilterLocationChange: function(location) {
+		console.log(location)
+	},
 	handleMapClick: function(location) {
 		console.log(location)
 	},
@@ -66,15 +70,13 @@ var Dashboard = React.createClass({
 	render: function() {
 		return (
 			<div>
-				<nav className="navbar navbar-inverse navbar-static" role="navigation">
-					<div className="container">
-						<div className="navbar-header">
-							<a className="navbar-brand" href="./">Zahrajeme.cz</a>
-						</div>
-					</div>
-				</nav>
+				<header className="site-header">
+					<a href="./" className="site-logo">Zahra<i>jeme</i></a>
+					<FilterSport onChange={this.handleFilterSportChange} />
+				</header>
 
-				<Filter onSportChange={this.handleFilterSportChange} />
+				<FilterLocation onChange={this.handleFilterLocationChange} />
+
 				<Map pins={this.state.entries} onMapClick={this.handleMapClick} onMarkerClick={this.handleMarkerClick} />
 				<Listing entries={this.state.entries} />
 			</div>
