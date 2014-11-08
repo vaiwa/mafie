@@ -63,10 +63,14 @@ module.exports = () ->
 
 
 
+	onMapClick: (cb) -> onMapClick = cb
+	onMarkerClick: (cb) -> onMarkerClick = cb
+
 	displayMe: (coord) ->
 		markerMe = L.marker(coord, {icon: icons.red()})
 		.addTo(map)
 		.on 'click', () ->
+			map.panTo coord
 			console.log 'Its Me =)'
 
 
@@ -77,7 +81,10 @@ module.exports = () ->
 			fillColor: "light#{color}",
 			fillOpacity: 0.5
 
-		marker.on 'click', () -> onMarkerClick ad.id
+		marker.on 'click', () ->
+			onMarkerClick ad.id
+			console.log ad.location.coordinates
+			map.panTo ad.location.coordinates
 		marker.on 'mouseover', () ->
 			circle.addTo map
 		marker.on 'mouseout', () ->
@@ -115,9 +122,6 @@ module.exports = () ->
 		@coordFocus = coord
 		map.setView coord, 14
 
-
-	onMapClick: (cb) -> onMapClick = cb
-	onMarkerClick: (cb) -> onMarkerClick = cb
 
 
 
