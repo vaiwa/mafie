@@ -15,6 +15,7 @@ var ADS = [
 	{location: {coordinates: [49.2033, 16.57416], type:"Point"}, radius: 500, text: "Brno 2"}
 ];
 
+map.init();
 map.setMyCoord(PRAHA.coordinates);
 map.setAds(ADS);
 
