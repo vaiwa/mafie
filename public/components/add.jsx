@@ -25,12 +25,7 @@ var Add = React.createClass({
 
 						<ul className="nav navbar-nav pull-right">
 							<li>
-								<a href="#">
-									<div className="add_entry__link">
-										<div className="entry_text">Vyberte umístění aktivity na mapě</div>
-										<span className="add__icon glyphicon glyphicon-screenshot"></span>
-									</div>
-								</a>
+								<a href="#">Zpět</a>
 							</li>
 						</ul>
 					</div>
@@ -42,12 +37,11 @@ var Add = React.createClass({
 					<div className="row">
 						<div className="list_group__box--offer list-group">
 							<div className="list-group-item">
-								<h4 className="offer_title">Vytvořit aktivitu</h4>
+								<h4 className="offer_title">Vyberte umístění aktivity na mapě</h4>
 								<div className="col__list col-xs-6 col-sm-6">
 									<select className="form-control">
 										<option>Sport</option>
 										<option>Tenis</option>
-										<option>Osadnici z Katanu</option>
 										<option>Šachy</option>
 										<option>Badminton</option>
 									</select>
