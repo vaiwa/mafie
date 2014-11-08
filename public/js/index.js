@@ -1,4 +1,8 @@
+var React = require('react')
+
 var plugins = require('./plugins');
+
+// <Debug...
 var map = require('./map.coffee')();
 
 require('./geoJumper')(map);
@@ -17,7 +21,12 @@ var ADS = [
 map.setMyCoord(PRAHA.coordinates);
 map.setAds(ADS);
 
+setTimeout(function(){
+	map.moveTo([49.19163, 16.61238]);
+}, 4000);
+
+// ...>
+
+
 var router = require('../components/router.jsx')
 // React.renderComponent(router, document.body);
-
-
