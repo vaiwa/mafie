@@ -6,5 +6,5 @@ module.exports = new mongoose.Schema({
 	creation_date: { type: Date, default: Date.now },
 	date: { type: Date, default: Date.now },
 	text: { type: String },
-	sport: [{type: String, enum: require('./../../public/shared/sportsEnum')}]
+	sport: {type: String, enum: require('./../../public/shared/sportsEnum')}
 });

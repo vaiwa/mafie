@@ -21,6 +21,7 @@
   "homepage": "https://github.com/CzechHackathon2014/zahrajeme-cz",
   "dependencies": {
     "baucis": "^1.0.0-candidate.12",
+    "baucis-swagger": "^1.0.0-prerelease.1",
     "express": "^4.10.1",
     "mongoose": "^3.8.18"
   }
