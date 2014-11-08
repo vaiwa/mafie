@@ -4,6 +4,8 @@
 
 var React = require('react')
 
+var sports = require('../shared/sportsEnum')
+
 var Filter = React.createClass({
 	render: function() {
 		return (
@@ -14,11 +16,9 @@ var Filter = React.createClass({
 						<div className="input-group">
 							<div className="input-group-btn">
 								<select className="form-control radius--left">
-									<option>Sport</option>
-									<option>Tenis</option>
-									<option>Osadnici z Katanu</option>
-									<option>Šachy</option>
-									<option>Badminton</option>
+									{sports.map(function(sport) {
+										return <option key={sport.id} value={sport.id}>{sport.title}</option>
+									})}
 								</select>
 
 							</div>
