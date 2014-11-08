@@ -143,7 +143,8 @@ module.exports = function(grunt) {
 		watch: {
 
 			options: {
-				spawn: false
+				spawn: false,
+				debounceDelay: 2000
 			},
 
 			styles: {
