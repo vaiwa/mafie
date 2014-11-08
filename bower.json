@@ -1,6 +1,6 @@
 {
   "name": "Frontbase",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "index.html",
   "ignore": [
     "**/.*",
@@ -9,6 +9,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "latest"
+    "jquery": "latest",
+    "leaflet": "latest"
   }
 }
