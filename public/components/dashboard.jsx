@@ -9,11 +9,11 @@ var Map = require('./map.jsx')
 var Listing = require('./listing.jsx')
 
 var entries = [
-	{ name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30'},
-	{ name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30'},
-	{ name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30'},
-	{ name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30'},
-	{ name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30'}
+	{ id: 1, name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30'},
+	{ id: 2, name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30'},
+	{ id: 3, name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30'},
+	{ id: 4, name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30'},
+	{ id: 5, name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30'}
 ]
 
 var Dashboard = React.createClass({

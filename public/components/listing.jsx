@@ -13,7 +13,7 @@ var Listing = React.createClass({
 				<div className="row">
 					<div className="list_group__box list-group">
 						{this.props.entries.map(function(data) {
-							return <Entry name={data.name} place={data.place} time={data.time} />
+							return <Entry key={data.id} name={data.name} place={data.place} time={data.time} />
 						})}
 					</div>
 				</div>
