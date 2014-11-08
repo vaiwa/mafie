@@ -9,19 +9,20 @@ defaultCoord = [50.051611, 14.407032] # Prague
 module.exports = () ->
 	map = L.map('map').setView defaultCoord, 14
 
-
-	coordMy = defaultCoord
-	ads = []
-
 	layer = L.tileLayer 'https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png',
 		maxZoom: 18
 		id: 'examples.map-i875mjb7'
-	layer.addTo map
+	.addTo map
 
+
+	coordMy = defaultCoord
+	coordFocus = coordMy
+	ads = []
 
 	map.on 'click', (e) ->
+		coordFocus = e.latlng
 		ad =
-			location: e.latlng
+			location: coordFocus
 			radius: 500
 			text: 'Novy Ad'
 		markers.displayAd map, ad, 'green'
@@ -43,6 +44,7 @@ module.exports = () ->
 
 	setMyCoord: (coord) ->
 		@coordMy = coord
+		@coordFocus = coord
 		map.setView coord, 14
 		markers.displayMe map, coordMy
 
@@ -52,6 +54,7 @@ module.exports = () ->
 		markers.displayAd map, ad for ad in ads
 
 	moveTo: (coord) ->
+		@coordFocus = coord
 		map.setView coord, 14
 
 
