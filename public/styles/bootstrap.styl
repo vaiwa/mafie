@@ -65,6 +65,12 @@ $border-radius-base = $border-radius-large = $border-radius-small = $radius
 	margin-top: calc(100vh - 240px)
 	box-shadow: none
 
+.list_group__box--offer
+	padding: 0 14px !important
+	margin-top: calc(100vh - 240px)
+	box-shadow: none
+.list_group__box--offer .list-group-item
+	background-color: rgba(255,255,255,0.75) !important
 .btn__play
 	text-decoration: none
 
@@ -89,3 +95,35 @@ $border-radius-base = $border-radius-large = $border-radius-small = $radius
 
 .btn__callbtn .glyphicon
 	padding-top: 4px
+
+.add_entry__link
+	display: block
+	color: white
+.add_entry__link a:href
+	color: #c4c4c4
+
+.entry_text
+	display: inline-block
+
+.add__icon
+	display: inline-block
+	padding-left: 10px
+
+.offer_title
+	text-align: center
+	margin: 5px 0 15px
+	padding: 0
+.offer-filed--divider
+	margin: 5px 0
+
+@media (max-width: 400px)
+	.add_entry__link
+		width: 140px
+		position: relative
+		top: -12px
+	.add__icon
+		float: right
+	.add__icon
+		position: relative
+		top: -30px
+		font-size: 20px !important
