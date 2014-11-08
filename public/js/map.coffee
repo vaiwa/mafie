@@ -5,19 +5,19 @@ L.Icon.Default.imagePath = 'images'
 
 defaultCoord = [50.051611, 14.407032] # Prague
 
-
 module.exports = () ->
 	map = L.map('map').setView defaultCoord, 14
+
+
+	coordMy = defaultCoord
+	coordFocus = coordMy
+
+	ads = []
 
 	layer = L.tileLayer 'https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png',
 		maxZoom: 18
 		id: 'examples.map-i875mjb7'
 	.addTo map
-
-
-	coordMy = defaultCoord
-	coordFocus = coordMy
-	ads = []
 
 	map.on 'click', (e) ->
 		coordFocus = e.latlng
@@ -45,6 +45,7 @@ module.exports = () ->
 	setMyCoord: (coord) ->
 		@coordMy = coord
 		@coordFocus = coord
+
 		map.setView coord, 14
 		markers.displayMe map, coordMy
 

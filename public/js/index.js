@@ -20,6 +20,11 @@ var ADS = [
 map.setMyCoord(PRAHA.coordinates);
 map.setAds(ADS);
 
+setTimeout(function(){
+	// map.moveTo(BRNO); // example - uncoment for move to BRNO
+}, 4000);
+
+
 var geocoder = new google.maps.Geocoder();
 var addrInputEl = document.getElementById('geoJumper');
 
@@ -39,6 +44,9 @@ addrInputEl.addEventListener('keydown', function codeAddress(ev) {
 
 	}
 );
+
+
+
 
 var router = require('../components/router.jsx')
 // React.renderComponent(router, document.body);
