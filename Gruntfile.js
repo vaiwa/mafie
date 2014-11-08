@@ -129,7 +129,8 @@ module.exports = function(grunt) {
 						scroll: true,
 						links: false,
 						forms: true
-					}
+					},
+					notify: false
 				},
 				bsFiles: {
 					src: WATCH_FILES
