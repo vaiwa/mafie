@@ -17,5 +17,6 @@ baucis.rest('ad');
 // Create the app and listen for API requests
 var app = express();
 app.use('/api', baucis());
+app.use(express.static('public'));
 
 app.listen(8060);
