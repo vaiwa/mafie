@@ -60,23 +60,27 @@ module.exports = () ->
 	displayMe: (coord) ->
 		markerMe = L.marker(coord, {icon: icons.red()})
 		.on 'click', () ->
-			alert 'OK'
+			console.log 'TODO'
 		.addTo(map)
 
 
 
+
 	addAd: (ad, color = 'blue') ->
-		marker = L.marker(ad.location.coordinates, {icon: icons.color(color)}).bindPopup(ad.text)
+		marker = L.marker(ad.location.coordinates, {icon: icons.color(color)})
 		circle = L.circle ad.location.coordinates, ad.radius,
 			color: "light#{color}",
 			fillColor: "light#{color}",
 			fillOpacity: 0.5
 
-		# circle.bindPopup "I am a circle."
+		marker.on 'click', () ->
+			console.log 'FANTOMAS'
+		marker.on 'mouseover', () ->
+			circle.addTo map
+		marker.on 'mouseout', () ->
+			map.removeLayer circle
 
 		marker.addTo map
-		circle.addTo map
-
 		ads.push {marker, circle}
 
 
