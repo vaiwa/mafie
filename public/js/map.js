@@ -27,9 +27,6 @@ var map = L.map('map').setView(coordMy, 14);
 
 L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
 	maxZoom: 18,
-	// attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-	// 	'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-	// 	'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 	id: 'examples.map-i875mjb7'
 }).addTo(map);
 
@@ -37,35 +34,37 @@ L.marker(coordMy, {icon: redIcon}).addTo(map).bindPopup("<b>Ahoj!</b><br />Tady 
 
 
 
-createAd = function (ad) {
-	L.marker(ad.location).addTo(map).bindPopup(ad.text);
-	L.circle(ad.location, ad.radius, {
+displayAd = function (ad) {
+	marker = L.marker(ad.location).bindPopup(ad.text);
+	circle = L.circle(ad.location, ad.radius, {
 		color: 'lightblue',
 		fillColor: 'lightblue',
 		fillOpacity: 0.5
-	}).addTo(map).bindPopup("I am a circle.");
+	});
+
+
+	// circle.bindPopup("I am a circle.");
+
+	marker.addTo(map);
+	circle.addTo(map);
 }
 
-ads.forEach(function(ad) { createAd(ad); });
+
+ads.forEach(function(ad) { displayAd(ad); });
 
 
 
 
-map.on('click', function(e) {
-	ad = {
-	};
-    alert(e.latlng); // e is an event object (MouseEvent in this case)
-});
+// map.on('click', function(e) {
+// 	ad = {
+// 	};
+//     alert(e.latlng); // e is an event object (MouseEvent in this case)
+// });
 
 
 
 
 
-// L.polygon([
-// 	[51.509, -0.08],
-// 	[51.503, -0.06],
-// 	[51.51, -0.047]
-// ]).addTo(map).bindPopup("I am a polygon.");
 
 
 // var popup = L.popup();
