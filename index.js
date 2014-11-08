@@ -3,13 +3,11 @@ var swagger = require('baucis-swagger');
 
 var express = require('express');
 var mongoose = require('mongoose');
-var config = require('./server/config/config_dev');
+var config = require('./server/config/config_hackathon');
 
 mongoose.connect(config.mongo);
 
-mongoose.model('user', require('./server/models/user'));
-mongoose.model('event', require('./server/models/event'));
-mongoose.model('ad', require('./server/models/ad'));
+require('./server/models/models');
 
 baucis.rest('user');
 baucis.rest('event');

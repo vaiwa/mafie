@@ -4,6 +4,8 @@
   "description": "web portal for connecting people for sports",
   "main": "index.js",
   "scripts": {
+    "prepublish": "bower install --config.interactive=false && grunt",
+    "build": "grunt",
     "test": "mocha"
   },
   "repository": {
@@ -29,21 +31,19 @@
     "bower": "latest",
     "browserify-shim": "latest",
     "grunt": "latest",
+    "grunt-browser-sync": "latest",
     "grunt-browserify": "latest",
     "grunt-cli": "latest",
     "grunt-contrib-clean": "latest",
     "grunt-contrib-copy": "latest",
     "grunt-contrib-cssmin": "latest",
     "grunt-contrib-stylus": "latest",
-    "grunt-hashres": "latest",
-    "uglifyify": "latest",
-    "grunt-browser-sync": "latest",
     "grunt-contrib-watch": "latest",
-    "grunt-notify": "latest"
-  },
-  "scripts": {
-    "prepublish": "bower install --config.interactive=false && grunt",
-    "build": "grunt"
+    "grunt-hashres": "latest",
+    "grunt-notify": "latest",
+    "mocha": "^2.0.1",
+    "supertest": "^0.14.0",
+    "uglifyify": "latest"
   },
   "browserify-shim": {
     "jquery": "global:$"
