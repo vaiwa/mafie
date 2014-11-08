@@ -5,7 +5,7 @@ var adSchema = new mongoose.Schema({
 		type: String, enum: ["Point"], default: "Point"},
 		coordinates: { type: [Number],  default: [0,0]}
 	},
-	area: { type: Number, default: 0},	//kilometers around the point
+	radius: { type: Number, default: 0},	//kilometers around the point
 	creation_date: { type: Date, default: Date.now },
 	date: { type: Date, default: Date.now },
 	text: { type: String },
