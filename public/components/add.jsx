@@ -36,7 +36,7 @@ var Add = React.createClass({
 					</div>
 				</nav>
 
-				<Map id="map" onMapClick={this.handleMapClick} onMarkerClick={this.handleMarkerClick} />
+				<Map pins={[]} onMapClick={this.handleMapClick} onMarkerClick={this.handleMarkerClick} />
 
 				<div className="container">
 					<div className="row">

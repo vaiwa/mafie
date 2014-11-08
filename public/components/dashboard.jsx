@@ -9,11 +9,11 @@ var Map = require('./map.jsx')
 var Listing = require('./listing.jsx')
 
 var entries = [
-	{ id: 1, name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30'},
-	{ id: 2, name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30'},
-	{ id: 3, name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30'},
-	{ id: 4, name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30'},
-	{ id: 5, name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30'}
+	{ id: 1, name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30', location: {coordinates: [50.06516, 14.41738], type:"Point"}, radius: 1000 },
+	{ id: 2, name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30', location: {coordinates: [50.060622, 14.389032], type:"Point"}, radius: 500 },
+	{ id: 3, name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30', location: {coordinates: [50.05789, 14.43751], type:"Point"}, radius: 1000 },
+	{ id: 4, name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30', location: {coordinates: [50.04052, 14.36838], type:"Point"}, radius: 2000 },
+	{ id: 5, name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30', location: {coordinates: [49.19068, 16.65304], type:"Point"}, radius: 1000 }
 ]
 
 var Dashboard = React.createClass({
@@ -36,7 +36,7 @@ var Dashboard = React.createClass({
 				</nav>
 
 				<Filter />
-				<Map onMapClick={this.handleMapClick} onMarkerClick={this.handleMarkerClick} />
+				<Map pins={entries} onMapClick={this.handleMapClick} onMarkerClick={this.handleMarkerClick} />
 				<Listing entries={entries} />
 			</div>
 		)
