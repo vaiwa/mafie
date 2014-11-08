@@ -4,9 +4,11 @@
 var coordMy = [50.051611, 14.407032];
 
 ads = [
-	{location: [50.052622, 14.419032], radius: 500, text: "Inzerat 1"},
-	{location: [50.060622, 14.389032], radius: 1500, text: "Inzerat 2"},
-	{location: [50.060622, 14.409032], radius: 1000, text: "Inzerat 3"}
+	{location: [50.06516, 14.41738], radius: 1000, text: "Inzerat 1"},
+	{location: [50.060622, 14.389032], radius: 500, text: "Inzerat 2"},
+	{location: [50.05789, 14.43751], radius: 1000, text: "Inzerat 3"},
+	{location: [50.04052, 14.36838], radius: 2000, text: "Inzerat 3"}
+
 ];
 
 var redIcon = L.icon({
