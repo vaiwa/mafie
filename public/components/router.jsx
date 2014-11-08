@@ -13,12 +13,14 @@ var Link = Router.Link
 // Application components
 var App = require('./app.jsx')
 var Dashboard = require('./dashboard.jsx')
+var Add = require('./add.jsx')
 
 // Routes definitions
 var routes = (
 	<Routes location="hash">
 
 		<Route name="app" path="/" handler={App}>
+			<Route name="add" path="add" handler={Add}/>
 			<DefaultRoute handler={Dashboard}/>
 		</Route>
 
