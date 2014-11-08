@@ -8,6 +8,14 @@ var Filter = require('./filter.jsx')
 var Map = require('./map.jsx')
 var Listing = require('./listing.jsx')
 
+var entries = [
+	{ name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30'},
+	{ name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30'},
+	{ name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30'},
+	{ name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30'},
+	{ name: 'Tenis', place: 'Thákurova 9, Praha 6', time: 'Pátek 16:30'}
+]
+
 var Dashboard = React.createClass({
 
 	render: function() {
@@ -15,7 +23,7 @@ var Dashboard = React.createClass({
 			<div>
 				<Filter />
 				<Map />
-				<Listing />
+				<Listing entries={entries}/>
 			</div>
 		)
 	}
