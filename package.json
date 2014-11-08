@@ -30,6 +30,7 @@
   "devDependencies": {
     "bower": "latest",
     "browserify-shim": "latest",
+    "coffeeify": "^0.7.0",
     "grunt": "latest",
     "grunt-browser-sync": "latest",
     "grunt-browserify": "latest",
