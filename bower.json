@@ -10,6 +10,7 @@
   ],
   "dependencies": {
     "jquery": "latest",
-    "leaflet": "latest"
+    "leaflet": "latest",
+    "bootstrap-stylus": "~3.3.0"
   }
 }
