@@ -5,19 +5,53 @@
 	<title>Leaflet Test</title>
 	<meta charset="utf-8" />
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 	<link rel="stylesheet" href="./leaflet.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+	<style type="text/css">
+		body {
+			padding: 0;
+			margin: 0;
+		}
+		html, body, #map {
+			height: 100%;
+		}
+	</style>
 </head>
 <body>
-	<div id="map" style="width: 1200px; height: 700px"></div>
+	<!-- <div class="container">
+		<div class="row">
+			<div id="map" style="height: 100px; width: 100px"></div>
+		</div>
+	</div> -->
+
+	<div id="map" style="width: 1000px; height: 600px"></div>
 
 	<script src="./leaflet.js"></script>
 	<script>
 
-		var myCoord = [50.051611, 14.407032];
+		var coordMy = [50.051611, 14.407032];
+		var coord1 = [50.052622, 14.419032];
+		var coord2 = [50.060622, 14.389032];
 
-		var map = L.map('map').setView(myCoord, 14);
+		var myIcon = L.icon({
+			iconUrl: 'images/marker-icon-red.png',
+			iconRetinaUrl: 'images/marker-icon-red@2x.png',
+			iconSize: [25, 41],
+			iconAnchor: [12, 41],
+			popupAnchor: [1, -34],
+			shadowUrl: 'images/marker-shadow.png',
+			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
+			shadowSize: [41, 41],
+			shadowAnchor: [12, 41]
+		});
+
+
+		var map = L.map('map').setView(coordMy, 14);
 
 		L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
 			maxZoom: 18,
@@ -28,7 +62,10 @@
 		}).addTo(map);
 
 
-		L.marker(myCoord).addTo(map).bindPopup("<b>Ahoj!</b><br />Tady je Techsquare.").openPopup();
+		L.marker(coordMy, {icon: myIcon}).addTo(map).bindPopup("<b>Ahoj!</b><br />Tady je Techsquare.").openPopup();
+
+		L.marker(coord1).addTo(map).bindPopup("Inzerat 1");
+		L.marker(coord2).addTo(map).bindPopup("Inzerat 2");
 
 		// L.circle([51.508, -0.11], 500, {
 		// 	color: 'red',
