@@ -70,14 +70,14 @@ module.exports = function(grunt) {
 		browserify: {
 
 			options: {
-				transform: ['browserify-shim', 'uglifyify'],
+				transform: ['reactify', 'browserify-shim', 'uglifyify'],
 				external: ['jquery']
 			},
 
 			dev: {
 				options: {
 					debug: true,
-					transform: ['browserify-shim']
+					transform: ['reactify', 'browserify-shim']
 				},
 				src: JS_FILES,
 				dest: DIST_FOLDER + '/app.js'
@@ -151,7 +151,7 @@ module.exports = function(grunt) {
 			},
 
 			js: {
-				files: 'public/js/**/*.js',
+				files: ['public/js/**/*.js', 'public/components/**/*.jsx'],
 				tasks: 'browserify:dev'
 			},
 
