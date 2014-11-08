@@ -1,4 +1,7 @@
 L = require '../libs/leaflet/dist/leaflet'
+icons = require('./map/icons.coffee') L
+
+L.Icon.Default.imagePath = 'images'
 
 
 module.exports = () ->
@@ -13,19 +16,7 @@ module.exports = () ->
 	]
 
 
-	L.Icon.Default.imagePath = 'images'
 
-	redIcon = L.icon
-		iconUrl: '../images/marker-icon-red.png'
-		iconRetinaUrl: 'images/marker-icon-red-2x.png'
-		iconSize: [25, 41]
-		iconAnchor: [12, 41]
-
-		popupAnchor: [1, -34]
-
-		shadowUrl: 'images/marker-shadow.png'
-		shadowSize: [41, 41]
-		shadowAnchor: [12, 41]
 
 
 	map = L.map('map').setView coordMy, 14
@@ -39,17 +30,17 @@ module.exports = () ->
 
 
 
-	L.marker(coordMy, {icon: redIcon})
+	L.marker(coordMy, {icon: icons.red()})
 	.addTo(map)
 	.bindPopup("<b>Ahoj!</b><br />Tady je Techsquare.")
 	.openPopup()
 
 
-	displayAd = (ad) ->
-		marker = L.marker(ad.location).bindPopup(ad.text)
+	displayAd = (ad, color = 'blue') ->
+		marker = L.marker(ad.location, {icon: icons.color(color)}).bindPopup(ad.text)
 		circle = L.circle ad.location, ad.radius,
-			color: 'lightblue',
-			fillColor: 'lightblue',
+			color: "light#{color}",
+			fillColor: "light#{color}",
 			fillOpacity: 0.5
 
 		# circle.bindPopup "I am a circle."
@@ -72,7 +63,7 @@ module.exports = () ->
 			radius: 500
 			text: 'Novy Ad'
 
-		displayAd ad
+		displayAd ad, 'green'
 
 
 
