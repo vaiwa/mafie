@@ -32,65 +32,7 @@
 	<div id="map" style="width: 1000px; height: 600px"></div>
 
 	<script src="./leaflet.js"></script>
-	<script>
+	<script src="./map.js"></script>
 
-		var coordMy = [50.051611, 14.407032];
-		var coord1 = [50.052622, 14.419032];
-		var coord2 = [50.060622, 14.389032];
-
-		var myIcon = L.icon({
-			iconUrl: 'images/marker-icon-red.png',
-			iconRetinaUrl: 'images/marker-icon-red@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 41],
-			popupAnchor: [1, -34],
-			shadowUrl: 'images/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 41]
-		});
-
-
-		var map = L.map('map').setView(coordMy, 14);
-
-		L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
-			maxZoom: 18,
-			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-			id: 'examples.map-i875mjb7'
-		}).addTo(map);
-
-
-		L.marker(coordMy, {icon: myIcon}).addTo(map).bindPopup("<b>Ahoj!</b><br />Tady je Techsquare.").openPopup();
-
-		L.marker(coord1).addTo(map).bindPopup("Inzerat 1");
-		L.marker(coord2).addTo(map).bindPopup("Inzerat 2");
-
-		// L.circle([51.508, -0.11], 500, {
-		// 	color: 'red',
-		// 	fillColor: '#f03',
-		// 	fillOpacity: 0.5
-		// }).addTo(map).bindPopup("I am a circle.");
-
-		// L.polygon([
-		// 	[51.509, -0.08],
-		// 	[51.503, -0.06],
-		// 	[51.51, -0.047]
-		// ]).addTo(map).bindPopup("I am a polygon.");
-
-
-		// var popup = L.popup();
-
-		// function onMapClick(e) {
-		// 	popup
-		// 		.setLatLng(e.latlng)
-		// 		.setContent("You clicked the map at " + e.latlng.toString())
-		// 		.openOn(map);
-		// }
-
-		// map.on('click', onMapClick);
-
-	</script>
 </body>
 </html>
