@@ -28,8 +28,8 @@ var Dashboard = React.createClass({
 		return (
 			<div>
 				<Filter />
-				<Map />
-				<Listing entries={entries} onMapClick={this.handleMapClick} onMarkerClick={this.handleMarkerClick} />
+				<Map onMapClick={this.handleMapClick} onMarkerClick={this.handleMarkerClick} />
+				<Listing entries={entries} />
 			</div>
 		)
 	}

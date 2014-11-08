@@ -21,15 +21,17 @@ var ADS = [
 
 var Map = React.createClass({
 
-	initialize: function() {
+	getInitialState: function() {
 		var that = this
 
 		LeafletMap.onMapClick(function(location) {
-			that.props.handlerMapClick(location)
+			that.props.onMapClick(location)
 		})
 		LeafletMap.onMarkerClick(function(id) {
-			that.props.handlerMarkerClick(id)
+			that.props.onMarkerClick(id)
 		})
+
+		return null
 	},
 
 	componentDidMount: function() {

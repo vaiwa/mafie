@@ -112,6 +112,14 @@ module.exports = () ->
 		@coordFocus = coord
 		map.setView coord, 14
 
+	onMapClick: (callback) ->
+		callback { # location
+			lat: 0
+			lng: 0
+		}
+	onMarkerClick: (callback) ->
+		callback 0 # id
+
 
 
 
