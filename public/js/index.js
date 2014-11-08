@@ -1,9 +1,7 @@
 var plugins = require('./plugins');
-var map = require('./map.coffee')();
 
 // <Debug...
 var map = require('./map.coffee')();
-
 require('./geoJumper')(map);
 
 var PRAHA = {coordinates: [50.051611, 14.407032], type:"Point"}
@@ -50,3 +48,4 @@ addrInputEl.addEventListener('keydown', function codeAddress(ev) {
 
 var router = require('../components/router.jsx')
 // React.renderComponent(router, document.body);
+
