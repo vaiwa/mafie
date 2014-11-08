@@ -33,7 +33,7 @@ module.exports = () ->
 
 
 		map.on 'click', (e) =>
-			color = 'green'
+			type = 'green'
 
 			coordFocus = e.latlng
 			onMapClick coordFocus
@@ -44,22 +44,12 @@ module.exports = () ->
 				text: 'Novy Ad'
 
 			unless markerFocus
-				markerFocus = L.marker(ad.location.coordinates, {icon: icons.color(color)})
+				markerFocus = L.marker(ad.location.coordinates, {icon: icons.type(type)})
 				markerFocus.bindPopup(ad.text)
 				markerFocus.addTo map
 			else
 				markerFocus.setLatLng coordFocus
 				markerFocus.update
-
-			unless circleFocus
-				circleFocus = L.circle ad.location.coordinates, ad.radius,
-					color: "light#{color}",
-					fillColor: "light#{color}",
-					fillOpacity: 0.5
-				circleFocus.addTo map
-			else
-				circleFocus.setLatLng coordFocus
-				circleFocus.update
 
 
 
@@ -74,23 +64,17 @@ module.exports = () ->
 			console.log 'Its Me =)'
 
 
-	addAd: (ad, color = 'blue') ->
-		marker = L.marker(ad.location.coordinates, {icon: icons.color(color)})
-		circle = L.circle ad.location.coordinates, ad.radius,
-			color: "light#{color}",
-			fillColor: "light#{color}",
-			fillOpacity: 0.5
+	addAd: (ad) ->
+		console.log 'AD', ad
+
+		marker = L.marker(ad.location.coordinates, {icon: icons.type(ad.sport)})
 
 		marker.on 'click', () ->
 			map.panTo ad.location.coordinates
 			onMarkerClick ad.id
-		marker.on 'mouseover', () ->
-			circle.addTo map
-		marker.on 'mouseout', () ->
-			map.removeLayer circle
 
 		marker.addTo map
-		ads.push {marker, circle}
+		ads.push {marker}
 
 
 	getMyCoord: () -> @coordMy
@@ -110,7 +94,6 @@ module.exports = () ->
 	clearAds: () ->
 		for ad in ads
 			map.removeLayer ad.marker
-			map.removeLayer ad.circle
 
 	setAds: (ads) ->
 		@clearAds()
