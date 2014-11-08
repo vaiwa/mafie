@@ -14,8 +14,13 @@ var Listing = React.createClass({
 					<div className="list_group__box list-group">
 						<div className="list-group-item">
 							<div className="col__list col-xs-10 col-sm-10">
-								<h4 className="contact__title pull-left">Napiš vzkaz spoluhrači</h4>
-
+								<h4 className="sport__title pull-left">Tenis</h4>
+								<br/>
+									<ul className="list-unstyled sport__info">
+									<li className="pull-left"><span className="glyphicon glyphicon-map-marker"></span> xx km</li>
+									<li className="pull-left"><span className="glyphicon glyphicon-calendar"></span> pátek xx:xx</li>
+									</ul>
+									<div className="clearfix"></div>
 									<form role="form">
 										<div className="form-group">
 											<input type="text" className="form-control input__message" placeholder="Domluv se co a jak"/>
