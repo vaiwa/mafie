@@ -1,6 +1,11 @@
-
+_ = require '../../libs/lodash/dist/lodash'
+sports =  require '../../shared/sportsEnum'
+sports = _.indexBy sports, 'id' if _.isArray sports
+console.log sports
 
 module.exports = (L) ->
+
+	console.log "SPORTS", sports
 
 	color: (color = 'blue') ->
 		switch color

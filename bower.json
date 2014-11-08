@@ -11,6 +11,7 @@
   "dependencies": {
     "jquery": "latest",
     "leaflet": "latest",
-    "bootstrap-stylus": "~3.3.0"
+    "bootstrap-stylus": "~3.3.0",
+    "lodash": "~2.4.1"
   }
 }
