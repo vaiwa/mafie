@@ -71,7 +71,7 @@ $border-radius-base = $border-radius-large = $border-radius-small = $radius
 	box-shadow: none
 .list_group__box--offer .list-group-item
 	background-color: rgba(255,255,255,0.75) !important
-.btn__play
+.btn__play, .message--cancel
 	text-decoration: none
 
 .btn__play span.btn
@@ -115,6 +115,22 @@ $border-radius-base = $border-radius-large = $border-radius-small = $radius
 	padding: 0
 .offer-filed--divider
 	margin: 5px 0
+
+.btn__cross, .message--send
+	width: 32px
+	height: 32px
+	cursor: pointer
+	position: relative
+
+.btn__cross .glyphicon, .btn__callbtn .glyphicon
+	padding-top: 4px
+
+.message--send
+	top: 10px
+
+.contact__title
+	margin: 5px 0 15px
+	padding: 0
 
 @media (max-width: 400px)
 	.add_entry__link
