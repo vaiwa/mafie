@@ -4,6 +4,7 @@
 
 var React = require('react')
 var LeafletMap = require('../js/map.coffee')()
+var geoJumper = require('../js/geoJumper')
 
 var PRAHA = {coordinates: [50.051611, 14.407032], type:"Point"}
 var BRNO = {coordinates: [49.19163, 16.61238], type:"Point"}
@@ -16,8 +17,6 @@ var ADS = [
 	{location: {coordinates: [49.2033, 16.57416], type:"Point"}, radius: 500, text: "Brno 2"}
 ];
 
-// @TODO rewrite require('./geoJumper')(map); as method
-
 
 
 var Map = React.createClass({
@@ -26,6 +25,8 @@ var Map = React.createClass({
 		LeafletMap.init(this.getDOMNode())
 		LeafletMap.setMyCoord(PRAHA.coordinates)
 		LeafletMap.setAds(ADS)
+
+		geoJumper(LeafletMap)
 	},
 
 	geolocate: function(callback) {
