@@ -116,20 +116,24 @@ $border-radius-base = $border-radius-large = $border-radius-small = $radius
 .offer-filed--divider
 	margin: 5px 0
 
-.btn__cross, .message--send
-	width: 32px
-	height: 32px
+.btn__cross, .message--send, .btn__send-message
+	width: 33px
+	height: 33px
 	cursor: pointer
 	position: relative
 
-.btn__cross .glyphicon, .btn__callbtn .glyphicon
+.btn__cross, .btn__cross a, .btn__cross a:hover
+	color: #c4c4c4
+
+
+.btn__cross .glyphicon, .btn__callbtn .glyphicon, .btn__send-message .glyphicon
 	padding-top: 4px
 
 .message--send
 	top: 10px
 
 .contact__title
-	margin: 5px 0 15px
+	margin: 5px 0 19px
 	padding: 0
 
 @media (max-width: 400px)

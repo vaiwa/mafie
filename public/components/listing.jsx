@@ -14,23 +14,23 @@ var Listing = React.createClass({
 					<div className="list_group__box list-group">
 						<div className="list-group-item">
 							<div className="col__list col-xs-10 col-sm-10">
-								<h4 className="contact__title pull-left">Kontaktovat</h4>
+								<h4 className="contact__title pull-left">Napiš vzkaz spoluhrači</h4>
 
 									<form role="form">
 										<div className="form-group">
-											<input type="text" className="form-control input__message" placeholder="Vzkaz spoluhraci"/>
+											<input type="text" className="form-control input__message" placeholder="Domluv se co a jak"/>
 										</div>
 									</form>
 
 							</div>
 						<div className="col__list col-xs-2 col-sm-2">
 						<a href="#" className="message--cancel">
-							<span className="btn btn-danger btn-sm pull-right btn__cross"><span className="glyphicon glyphicon-remove-sign"></span>
+							<span className="btn btn-sm pull-right btn__cross"><span className="glyphicon glyphicon-remove-sign"></span>
 							</span>
 						</a>
 						<div className="clearfix"></div>
 						<a href="#" className="message--send">
-						<span className="btn btn-success btn-sm pull-right btn__cross"><span className="glyphicon glyphicon-ok-circle"></span>
+						<span className="btn btn-success btn-sm pull-right btn__send-message"><span className="glyphicon glyphicon-ok-circle"></span>
 						</span>
 						</a>
 					</div>
