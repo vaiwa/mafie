@@ -1,14 +1,13 @@
 L = require '../libs/leaflet/dist/leaflet'
-icons = require('./icons.coffee') L
-# markers = require('./map/markers.coffee') L
+icons = require('./map/icons.coffee') L
 
 L.Icon.Default.imagePath = 'images'
 
 defaultCoord = [50.051611, 14.407032] # Prague
 
+
 module.exports = () ->
 	map = L.map('map').setView defaultCoord, 14
-
 
 	coordMy = defaultCoord
 	coordFocus = coordMy
@@ -26,10 +25,10 @@ module.exports = () ->
 			location: coordFocus
 			radius: 500
 			text: 'Novy Ad'
-		markers.displayAd map, ad, 'green'
+		@displayAd map, ad, 'green'
 
-		markerFocus ?= L.marker(ad.location.coordinates, {icon: icons.color(color)}).bindPopup(ad.text)
-		circleFocus ?= L.circle ad.location.coordinates, ad.radius,
+		markerFocus = L.marker(ad.location.coordinates, {icon: icons.color(color)}).bindPopup(ad.text)
+		circleFocus = L.circle ad.location.coordinates, ad.radius,
 			color: "light#{color}",
 			fillColor: "light#{color}",
 			fillOpacity: 0.5
@@ -79,12 +78,12 @@ module.exports = () ->
 		@coordFocus = coord
 
 		map.setView coord, 14
-		markers.displayMe map, coordMy
+		@displayMe map, coordMy
 
 
 	setAds: (ads) ->
 		@ads = ads
-		markers.displayAd map, ad for ad in ads
+		@displayAd map, ad for ad in ads
 
 	moveTo: (coord) ->
 		@coordFocus = coord
