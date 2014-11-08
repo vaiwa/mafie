@@ -13,8 +13,8 @@ module.exports = (L) ->
 
 
 	displayAd: (map, ad, color = 'blue') ->
-		marker = L.marker(ad.location, {icon: icons.color(color)}).bindPopup(ad.text)
-		circle = L.circle ad.location, ad.radius,
+		marker = L.marker(ad.location.coordinates, {icon: icons.color(color)}).bindPopup(ad.text)
+		circle = L.circle ad.location.coordinates, ad.radius,
 			color: "light#{color}",
 			fillColor: "light#{color}",
 			fillOpacity: 0.5
