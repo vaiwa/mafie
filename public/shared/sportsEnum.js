@@ -1,0 +1,1 @@
+module.exports = ['tenis', 'squash', 'fotball', 'badminton', 'hokey', 'volleyball'];
