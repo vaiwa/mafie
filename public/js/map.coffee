@@ -57,23 +57,12 @@ module.exports = () ->
 
 
 
-		# // var popup = L.popup();
-
-		# // function onMapClick(e) {
-		# // 	popup
-		# // 		.setLatLng(e.latlng)
-		# // 		.setContent("You clicked the map at " + e.latlng.toString())
-		# // 		.openOn(map);
-		# // }
-
-		# // map.on('click', onMapClick);
-
-
 	displayMe: (coord) ->
-		L.marker(coord, {icon: icons.red()})
+		markerMe = L.marker(coord, {icon: icons.red()})
+		.on 'click', () ->
+			alert 'OK'
 		.addTo(map)
-		.bindPopup("<b>Ahoj!</b><br />Tady je Techsquare.")
-		.openPopup()
+
 
 
 	addAd: (ad, color = 'blue') ->
