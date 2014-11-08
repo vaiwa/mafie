@@ -18,115 +18,14 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="mobile-web-app-capable" content="yes">
 
-
 	<link rel="stylesheet" href="build/screen.css">
 
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+	<script defer src="build/app.js"></script>
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse navbar-static" role="navigation">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Zahrajeme.cz</a>
-
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-
-			</div><!--/.navbar-collapse -->
-		</div>
-	</nav>
-
-
-	<div class="container">
-		<div class="row">
-
-			<div class="col-xs-12 col-sm-12">
-				<div class="input-group">
-					<div class="input-group-btn">
-						<select class="form-control radius--left">
-							<option>Sport</option>
-							<option>Tenis</option>
-							<option>Osadnici z Katanu</option>
-							<option>Šachy</option>
-							<option>Badminton</option>
-						</select>
-
-					</div>
-					<div class="input-group-btn">
-						<input id="geoJumper" class="form-control radius--right" type="text" placeholder="Adresa"/>
-					</div>
-				</div>
-			</div>
-
-
-		</div>
-
-</div>
-
-			<div id="map"></div>
-
-	<div class="container">
-		<div class="row">
-			<div class="list_group__box list-group">
-
-				<div class="list-group-item">
-					<div class="col__list col-xs-10 col-sm-10">
-						<h4 class="active__title pull-left">Tenis</h4>
-						<div class="pull-left">
-							<span class="glyphicon glyphicon-map-marker"></span> Thakurova 9, Praha 6
-							<br/>
-							<span class="glyphicon glyphicon-calendar"></span> Pátek 16:30
-						</div>
-					</div>
-					<div class="col__list col-xs-2 col-sm-2"><a href="#" class="btn__play">
-						<span class="btn btn-success btn-sm pull-right btn__callbtn"><span class="glyphicon glyphicon-chevron-right"></span>
-						</span></a></div>
-					<div class="clearfix"></div>
-				</div>
-
-				<div class="list-group-item">
-					<div class="col__list col-xs-10 col-sm-10">
-						<h4 class="active__title pull-left">Badminton</h4>
-						<div class="pull-left">
-							<span class="glyphicon glyphicon-map-marker"></span> Thakurova 9, Praha 6
-							<br/>
-							<span class="glyphicon glyphicon-calendar"></span> Pátek 16:30
-						</div>
-					</div>
-					<div class="col__list col-xs-2 col-sm-2"><a href="#" class="btn__play">
-						<span class="btn btn-success btn-sm pull-right btn__callbtn"><span class="glyphicon glyphicon-chevron-right"></span>
-						</span></a></div>
-					<div class="clearfix"></div>
-				</div>
-
-				<div class="list-group-item">
-					<div class="col__list col-xs-10 col-sm-10">
-						<h4 class="active__title pull-left">Osadnici z katanu</h4>
-						<div class="pull-left">
-							<span class="glyphicon glyphicon-map-marker"></span> Thakurova 9, Praha 6
-							<br/>
-							<span class="glyphicon glyphicon-calendar"></span> Pátek 16:30
-						</div>
-					</div>
-					<div class="col__list col-xs-2 col-sm-2"><a href="#" class="btn__play">
-						<span class="btn btn-success btn-sm pull-right btn__callbtn"><span class="glyphicon glyphicon-chevron-right"></span>
-						</span></a></div>
-					<div class="clearfix"></div>
-				</div>
-
-
-			</div>
-		</div>
-	</div>
-
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-	<script src="build/app.js"></script>
+	<!-- React app -->
 
 </body>
 </html>

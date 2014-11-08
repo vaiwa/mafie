@@ -7,7 +7,8 @@ defaultCoord = [50.051611, 14.407032] # Prague
 
 
 module.exports = () ->
-	map = L.map('map').setView defaultCoord, 14
+
+	map = null
 
 	coordMy = defaultCoord
 	coordFocus = coordMy
@@ -18,7 +19,9 @@ module.exports = () ->
 	ads = []
 
 
-	init: ->
+	init: (mapElement) ->
+		map = L.map(mapElement).setView defaultCoord, 14
+
 		layer = L.tileLayer 'https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png',
 			maxZoom: 18
 			id: 'examples.map-i875mjb7'
