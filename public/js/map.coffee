@@ -12,6 +12,9 @@ module.exports = () ->
 	coordMy = defaultCoord
 	coordFocus = coordMy
 
+	markerFocus = null
+	circleFocus = null
+
 	ads = []
 
 
@@ -22,28 +25,33 @@ module.exports = () ->
 		.addTo map
 
 
-
-
 		map.on 'click', (e) =>
 			color = 'green'
-			
+
 			coordFocus = e.latlng
 			ad =
 				location: coordinates: coordFocus
 				radius: 500
 				text: 'Novy Ad'
-			@displayAd ad, color
 
-			markerFocus = L.marker(ad.location.coordinates, {icon: icons.color(color)}).bindPopup(ad.text)
-			circleFocus = L.circle ad.location.coordinates, ad.radius,
-				color: "light#{color}",
-				fillColor: "light#{color}",
-				fillOpacity: 0.5
+			unless markerFocus
+				markerFocus = L.marker(ad.location.coordinates, {icon: icons.color(color)})
+				markerFocus.bindPopup(ad.text)
+				markerFocus.addTo map
+			else
+				markerFocus.setLatLng coordFocus
+				markerFocus.update
 
-			# circle.bindPopup "I am a circle."
+			unless circleFocus
+				circleFocus = L.circle ad.location.coordinates, ad.radius,
+					color: "light#{color}",
+					fillColor: "light#{color}",
+					fillOpacity: 0.5
+				circleFocus.addTo map
+			else
+				circleFocus.setLatLng coordFocus
+				circleFocus.update
 
-			markerFocus.addTo map
-			circleFocus.addTo map
 
 
 		# // var popup = L.popup();
