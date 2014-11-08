@@ -25,6 +25,7 @@
     "baucis": "^1.0.0-candidate.12",
     "baucis-swagger": "^1.0.0-prerelease.1",
     "express": "^4.10.1",
+    "fetch": "git://github.com/github/fetch",
     "mongoose": "^3.8.18"
   },
   "devDependencies": {
