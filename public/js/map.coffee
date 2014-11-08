@@ -82,9 +82,8 @@ module.exports = () ->
 			fillOpacity: 0.5
 
 		marker.on 'click', () ->
-			onMarkerClick ad.id
-			console.log ad.location.coordinates
 			map.panTo ad.location.coordinates
+			onMarkerClick ad.id
 		marker.on 'mouseover', () ->
 			circle.addTo map
 		marker.on 'mouseout', () ->
