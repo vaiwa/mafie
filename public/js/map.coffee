@@ -39,8 +39,8 @@ module.exports = () ->
 	displayAd = (ad, color = 'blue') ->
 		marker = L.marker(ad.location, {icon: icons.color(color)}).bindPopup(ad.text)
 		circle = L.circle ad.location, ad.radius,
-			color: 'lightblue',
-			fillColor: 'lightblue',
+			color: "light#{color}",
+			fillColor: "light#{color}",
 			fillOpacity: 0.5
 
 		# circle.bindPopup "I am a circle."
