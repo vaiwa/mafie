@@ -66,11 +66,14 @@ module.exports = () ->
 
 
 
-	# // map.on('click', function(e) {
-	# // 	ad = {
-	# // 	};
-	# //     alert(e.latlng); // e is an event object (MouseEvent in this case)
-	# // });
+	map.on 'click', (e) ->
+		ad =
+			location: e.latlng
+			radius: 500
+			text: 'Novy Ad'
+
+		displayAd ad
+
 
 
 
