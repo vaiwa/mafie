@@ -1,4 +1,5 @@
 module.exports = [
+	{ id: 'all', title: 'Všechny hry'},
 	{ id: 'tenis', title: 'Tenis'},
 	{ id: 'squash', title: 'Squash'},
 	{ id: 'fotball', title: 'Fotbal'},
