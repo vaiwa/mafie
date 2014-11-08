@@ -7,11 +7,11 @@ var config = require('./server/config/config_hackathon');
 
 mongoose.connect(config.mongo);
 
-require('./server/models/models');
+var  models = require('./server/models/models');
 
-baucis.rest('user');
-baucis.rest('event');
-baucis.rest('ad');
+//db2.ads.ensureIndex({ gps: "2dsphere"});
+mongoose.set('debug', true);
+
 // Create the app and listen for API requests
 var app = express();
 app.use('/api', baucis());

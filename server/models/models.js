@@ -1,6 +1,11 @@
 var mongoose = require('mongoose');
+var baucis = require('baucis');
 
-mongoose.model('user', require('./user'));
-mongoose.model('event', require('./event'));
-mongoose.model('ad', require('./ad'));
-mongoose.model('location', require('./location'));
+var models = ['user', 'event', 'ad', 'location'];
+var modelExport = {};
+models.forEach(function (model){
+	modelExport[model] = mongoose.model(model, require('./' + model));
+	baucis.rest(model);
+});
+
+module.exports = modelExport;
