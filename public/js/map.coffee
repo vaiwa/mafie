@@ -73,7 +73,7 @@ module.exports = () ->
 		.openPopup()
 
 
-	displayAd: (ad, color = 'blue') ->
+	addAd: (ad, color = 'blue') ->
 		marker = L.marker(ad.location.coordinates, {icon: icons.color(color)}).bindPopup(ad.text)
 		circle = L.circle ad.location.coordinates, ad.radius,
 			color: "light#{color}",
@@ -84,6 +84,8 @@ module.exports = () ->
 
 		marker.addTo map
 		circle.addTo map
+
+		ads.push {marker, circle}
 
 
 	getMyCoord: () -> @coordMy
@@ -96,9 +98,19 @@ module.exports = () ->
 		@displayMe coordMy
 
 
-	setAds: (ads) ->
+	addAds: (ads) ->
 		@ads = ads
-		@displayAd ad for ad in ads
+		@addAd ad for ad in ads
+
+	clearAds: () ->
+		for ad in ads
+			map.removeLayer ad.marker
+			map.removeLayer ad.circle
+
+	setAds: (ads) ->
+		@clearAds()
+		@addAds(ads)
+
 
 	moveTo: (coord) ->
 		@coordFocus = coord

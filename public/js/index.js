@@ -19,6 +19,10 @@ map.init();
 map.setMyCoord(PRAHA.coordinates);
 map.setAds(ADS);
 
+setTimeout(function() {
+	map.setAds([]);
+}, 2000);
+
 var router = require('../components/router.jsx')
 // React.renderComponent(router, document.body);
 
