@@ -77,10 +77,7 @@ module.exports = () ->
 			fillColor: "light#{color}",
 			fillOpacity: 0.5
 
-		marker.on 'click', () ->
-			console.log 'FANTOMAS', ad.id
-			onMarkerClick ad.id
-
+		marker.on 'click', () -> onMarkerClick ad.id
 		marker.on 'mouseover', () ->
 			circle.addTo map
 		marker.on 'mouseout', () ->
@@ -119,11 +116,8 @@ module.exports = () ->
 		map.setView coord, 14
 
 
-	onMapClick: (onMapClick) ->
-		onMapClick = onMapClick
-
-	onMarkerClick: (onMarkerClick) ->
-		onMarkerClick = onMarkerClick
+	onMapClick: (cb) -> onMapClick = cb
+	onMarkerClick: (cb) -> onMarkerClick = cb
 
 
 
