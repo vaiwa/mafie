@@ -1,3 +1,5 @@
+
+
 var coordMy = [50.051611, 14.407032];
 
 ads = [
@@ -6,14 +8,15 @@ ads = [
 	{location: [50.060622, 14.409032], radius: 1000, text: "Inzerat 3"}
 ];
 
-var myIcon = L.icon({
+var redIcon = L.icon({
 	iconUrl: 'images/marker-icon-red.png',
-	iconRetinaUrl: 'images/marker-icon-red@2x.png',
+	iconRetinaUrl: 'images/marker-icon-red-2x.png',
 	iconSize: [25, 41],
 	iconAnchor: [12, 41],
+
 	popupAnchor: [1, -34],
+
 	shadowUrl: 'images/marker-shadow.png',
-	// shadowRetinaUrl: 'my-icon-shadow@2x.png',
 	shadowSize: [41, 41],
 	shadowAnchor: [12, 41]
 });
@@ -23,15 +26,13 @@ var map = L.map('map').setView(coordMy, 14);
 
 L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
 	maxZoom: 18,
-	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-		'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-		'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+	// attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+	// 	'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+	// 	'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 	id: 'examples.map-i875mjb7'
 }).addTo(map);
 
-
-
-L.marker(coordMy, {icon: myIcon}).addTo(map).bindPopup("<b>Ahoj!</b><br />Tady je Techsquare.").openPopup();
+L.marker(coordMy, {icon: redIcon}).addTo(map).bindPopup("<b>Ahoj!</b><br />Tady je Techsquare.").openPopup();
 
 
 
@@ -44,9 +45,16 @@ createAd = function (ad) {
 	}).addTo(map).bindPopup("I am a circle.");
 }
 
-ads.forEach(function(ad) {createAd(ad);});
+ads.forEach(function(ad) { createAd(ad); });
 
 
+
+
+map.on('click', function(e) {
+	ad = {
+	};
+    alert(e.latlng); // e is an event object (MouseEvent in this case)
+});
 
 
 
