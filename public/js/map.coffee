@@ -16,6 +16,10 @@ module.exports = () ->
 	markerFocus = null
 	circleFocus = null
 
+	# callbackHandlers
+	onMapClick = null
+	onMarkerClick = null
+
 	ads = []
 
 
@@ -74,7 +78,9 @@ module.exports = () ->
 			fillOpacity: 0.5
 
 		marker.on 'click', () ->
-			console.log 'FANTOMAS'
+			console.log 'FANTOMAS', ad.id
+			onMarkerClick ad.id
+
 		marker.on 'mouseover', () ->
 			circle.addTo map
 		marker.on 'mouseout', () ->
@@ -112,13 +118,12 @@ module.exports = () ->
 		@coordFocus = coord
 		map.setView coord, 14
 
-	onMapClick: (callback) ->
-		callback { # location
-			lat: 0
-			lng: 0
-		}
-	onMarkerClick: (callback) ->
-		callback 0 # id
+
+	onMapClick: (onMapClick) ->
+		onMapClick = onMapClick
+
+	onMarkerClick: (onMarkerClick) ->
+		onMarkerClick = onMarkerClick
 
 
 
