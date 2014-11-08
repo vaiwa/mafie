@@ -21,5 +21,5 @@ module.exports = new mongoose.Schema({
 		fb_publish: {type:Boolean, default:true},
 		page_limit: {type: Number, min: 1, max: 300}
 	},
-	looking_for: [{type: String, enum: require('./../../public/shared/sportsEnum')}]
+	looking_for: [{type: String, enum:  require('./sportsEnum')}]
 });

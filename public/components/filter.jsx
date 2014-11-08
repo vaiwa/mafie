@@ -4,7 +4,7 @@
 
 var React = require('react')
 
-var sports = require('../shared/sportsEnum')
+var sports = require('../shared/sports')
 
 var Filter = React.createClass({
 
