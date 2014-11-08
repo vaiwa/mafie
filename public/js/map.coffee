@@ -1,5 +1,5 @@
 L = require '../libs/leaflet/dist/leaflet'
-icons = require('./map/icons.coffee') L
+markers = require('./map/markers.coffee') L
 
 L.Icon.Default.imagePath = 'images'
 
@@ -13,15 +13,12 @@ module.exports = () ->
 		{location: [50.060622, 14.389032], radius: 500, text: "Inzerat 2"}
 		{location: [50.05789, 14.43751], radius: 1000, text: "Inzerat 3"}
 		{location: [50.04052, 14.36838], radius: 2000, text: "Inzerat 3"}
+		{location: [49.19068, 16.65304], radius: 1000, text: "Brno 1"}
+		{location: [49.2033, 16.57416], radius: 500, text: "Brno 2"}
 	]
 
 
-
-
-
 	map = L.map('map').setView coordMy, 14
-
-
 
 	layer = L.tileLayer 'https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png',
 		maxZoom: 18
@@ -29,47 +26,15 @@ module.exports = () ->
 	layer.addTo map
 
 
-
-	L.marker(coordMy, {icon: icons.red()})
-	.addTo(map)
-	.bindPopup("<b>Ahoj!</b><br />Tady je Techsquare.")
-	.openPopup()
-
-
-	displayAd = (ad, color = 'blue') ->
-		marker = L.marker(ad.location, {icon: icons.color(color)}).bindPopup(ad.text)
-		circle = L.circle ad.location, ad.radius,
-			color: "light#{color}",
-			fillColor: "light#{color}",
-			fillOpacity: 0.5
-
-		# circle.bindPopup "I am a circle."
-
-		marker.addTo map
-		circle.addTo map
-
-
-
-	displayAd ad for ad in ads
-
-
-
-
-
+	markers.displayMe map, coordMy
+	markers.displayAd map, ad for ad in ads
 
 	map.on 'click', (e) ->
 		ad =
 			location: e.latlng
 			radius: 500
 			text: 'Novy Ad'
-
-		displayAd ad, 'green'
-
-
-
-
-
-
+		markers.displayAd map, ad, 'green'
 
 
 	# // var popup = L.popup();
@@ -82,6 +47,18 @@ module.exports = () ->
 	# // }
 
 	# // map.on('click', onMapClick);
+
+	moveTo: (coord) ->
+		map.setView coord
+
+
+
+
+
+
+
+
+
 
 
 
