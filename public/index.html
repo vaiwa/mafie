@@ -17,6 +17,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="mobile-web-app-capable" content="yes">
+	
 	<link rel="stylesheet" href="build/screen.css">
 
 	
@@ -44,25 +45,25 @@
 
 	<div class="container">
 		<div class="row">
-			<form role="form" action="">
-				<div class="col-xs-12 col-sm-12">
-					<div class="input-group">
-						<div class="input-group-btn">
-							<select class="form-control radius--left">
-								<option>Sport</option>
-								<option>Tenis</option>
-								<option>Osadnici z Katanu</option>
-								<option>Šachy</option>
-								<option>Badminton</option>
-							</select>
 
-						</div>
-						<div class="input-group-btn">
-							<input class="form-control radius--right" type="text" placeholder="Adresa"/>
-						</div>
+			<div class="col-xs-12 col-sm-12">
+				<div class="input-group">
+					<div class="input-group-btn">
+						<select class="form-control radius--left">
+							<option>Sport</option>
+							<option>Tenis</option>
+							<option>Osadnici z Katanu</option>
+							<option>Šachy</option>
+							<option>Badminton</option>
+						</select>
+
+					</div>
+					<div class="input-group-btn">
+						<input id="geoJumper" class="form-control radius--right" type="text" placeholder="Adresa"/>
 					</div>
 				</div>
-			</form>
+			</div>
+
 
 		</div>
 
@@ -124,6 +125,7 @@
 		</div>
 	</div>
 
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 	<script src="build/app.js"></script>
 
 </body>
