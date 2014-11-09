@@ -42,7 +42,8 @@ var Dashboard = React.createClass({
 			entries: ENTRIES,
 			filterSport: 'all',
 			showList: false,
-			activeEntry: false
+			activeEntry: false,
+			center: false
 		}
 	},
 
@@ -78,7 +79,7 @@ var Dashboard = React.createClass({
 	},
 
 	handleEntryClick: function(e) {
-		this.setState({ activeEntry: e })
+		this.setState({ activeEntry: e, center: e.location.coordinates })
 		scroll(0,0)
 	},
 	handleDetailClose: function() {
@@ -96,8 +97,8 @@ var Dashboard = React.createClass({
 	handleMapClick: function(location) {
 		console.log(location)
 	},
-	handleMarkerClick: function(id) {
-		console.log(id)
+	handleMarkerClick: function(e) {
+		this.setState({ activeEntry: e, center: e.location.coordinates  })
 	},
 
 	render: function() {
@@ -110,7 +111,7 @@ var Dashboard = React.createClass({
 
 				<FilterLocation onChange={this.handleFilterLocationChange} />
 
-				<Map pins={this.state.entries} onMapClick={this.handleMapClick} onMarkerClick={this.handleMarkerClick} />
+				<Map center={this.state.center} pins={this.state.entries} onMapClick={this.handleMapClick} onMarkerClick={this.handleMarkerClick} />
 
 				<Listing
 					entries={this.state.entries} activeEntry={this.state.activeEntry}

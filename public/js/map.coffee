@@ -23,11 +23,11 @@ module.exports = () ->
 	ads = []
 
 
-	init: (mapElement) ->
+	init: (mapElement, enableGreenMark = false) ->
 		map = L.map(mapElement).setView defaultCoord, 14
 
 		layer = L.tileLayer 'https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png',
-			maxZoom: 18
+			maxZoom: 19
 			id: 'examples.map-i875mjb7'
 		.addTo map
 
@@ -38,18 +38,16 @@ module.exports = () ->
 			coordFocus = e.latlng
 			onMapClick coordFocus
 
-			ad =
-				location: coordinates: coordFocus
-				radius: 500
-				text: 'Novy Ad'
-
-			unless markerFocus
-				markerFocus = L.marker(ad.location.coordinates, {icon: icons.type(type)})
-				markerFocus.bindPopup(ad.text)
-				markerFocus.addTo map
-			else
-				markerFocus.setLatLng coordFocus
-				markerFocus.update
+			if enableGreenMark
+				unless markerFocus
+					markerFocus = L.marker(coordFocus, {icon: icons.type(type)})
+					markerFocus.on 'click', () ->
+						map.panTo coordFocus
+						onMarkerClick coordFocus
+					markerFocus.addTo map
+				else
+					markerFocus.setLatLng coordFocus
+					markerFocus.update
 
 
 
@@ -65,16 +63,14 @@ module.exports = () ->
 
 
 	addAd: (ad) ->
-		console.log 'AD', ad
-
 		marker = L.marker(ad.location.coordinates, {icon: icons.type(ad.sport)})
-
-		marker.on 'click', () ->
-			map.panTo ad.location.coordinates
-			onMarkerClick ad.id
-
 		marker.addTo map
-		ads.push {marker}
+		marker.on 'click', () ->
+			# map.panTo ad.location.coordinates
+			onMarkerClick ad
+
+		ad.marker = marker
+		ads.push ad
 
 
 	getMyCoord: () -> @coordMy

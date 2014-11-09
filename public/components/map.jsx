@@ -9,6 +9,7 @@ var geoJumper = require('../js/geoJumper')
 var PRAHA = {coordinates: [50.051611, 14.407032], type:"Point"}
 var BRNO = {coordinates: [49.19163, 16.61238], type:"Point"}
 
+
 var Map = React.createClass({
 
 	getInitialState: function() {
@@ -25,7 +26,8 @@ var Map = React.createClass({
 	},
 
 	componentDidMount: function() {
-		LeafletMap.init(this.getDOMNode())
+		enableGreenMark = true
+		LeafletMap.init(this.getDOMNode(), enableGreenMark)
 		LeafletMap.setMyCoord(PRAHA.coordinates)
 		LeafletMap.setAds(this.props.pins)
 
@@ -34,6 +36,9 @@ var Map = React.createClass({
 
 	componentDidUpdate: function() {
 		LeafletMap.setAds(this.props.pins)
+		if (this.props.center) {
+			LeafletMap.moveTo(this.props.center)
+		}
 	},
 
 	geolocate: function(callback) {
@@ -45,7 +50,6 @@ var Map = React.createClass({
 	},
 
 	render: function() {
-
 		return (
 			<div className="map"></div>
 		)
@@ -53,3 +57,4 @@ var Map = React.createClass({
 })
 
 module.exports = Map
+

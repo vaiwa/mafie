@@ -15,7 +15,7 @@ module.exports = (L) ->
 					L.icon
 						iconUrl: sports[type].iconUrl
 						iconSize: [57, 43]
-						iconAnchor: [12, 41]
+						iconAnchor: [20, 35]
 
 		red: ->
 			L.icon
