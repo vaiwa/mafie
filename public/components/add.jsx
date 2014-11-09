@@ -4,6 +4,7 @@
 
 var React = require('react')
 
+var FilterLocation = require('./filterLocation.jsx')
 var Map = require('./map.jsx')
 
 var Add = React.createClass({
@@ -21,6 +22,8 @@ var Add = React.createClass({
 				<header className="site-header">
 					<a href="#/" className="site-logo">Zahra<i>jeme</i></a>
 				</header>
+
+				<FilterLocation onChange={this.handleFilterLocationChange} />
 
 				<Map pins={[]} onMapClick={this.handleMapClick} onMarkerClick={this.handleMarkerClick} />
 
