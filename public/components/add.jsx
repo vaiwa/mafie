@@ -3,6 +3,7 @@
  */
 
 var React = require('react')
+var _ = require ('../libs/lodash/dist/lodash');
 
 var FilterLocation = require('./filterLocation.jsx')
 var Map = require('./map.jsx')
@@ -15,6 +16,7 @@ var Add = React.createClass({
 
 	handleMapClick: function(location) {
 		console.log(location)
+		this.setState({center: location})
 	},
 	handleMarkerClick: function(id) {
 		console.log(id)
@@ -23,15 +25,28 @@ var Add = React.createClass({
 		var props = ['sport', 'date', 'mail'];
 		var toSend = {};
 		var refs = this.refs;
-		console.log("sport", this.refs.sport);
+
+		if (!this.state.center) {
+			//TODO handle validation here
+			return;
+		}
+
 		props.forEach(function(prop) {
 			toSend[prop] = refs[prop].getDOMNode().value;
 			if (!toSend[prop]) {
-				//is required
+				//TODO is required, handle validation here
+				return;
 			}
 		});
 
-		adsService.create(toSend);
+		toSend.location = {
+			type: 'Point',
+			coordinates: _.values(this.state.center)
+		};
+
+		toSend.date = new Date(toSend.date);
+
+		adsService.create(toSend)
 
 	},
 
