@@ -6,6 +6,8 @@ var React = require('react')
 
 var FilterLocation = require('./filterLocation.jsx')
 var Map = require('./map.jsx')
+var sports = require('../shared/sports');
+sports.splice(0, 1);
 
 var Add = React.createClass({
 
@@ -34,10 +36,9 @@ var Add = React.createClass({
 								<h4 className="offer_title">Vyberte umístění aktivity na mapě</h4>
 								<div className="col__list col-xs-6 col-sm-6">
 									<select className="form-control">
-										<option>Sport</option>
-										<option>Tenis</option>
-										<option>Šachy</option>
-										<option>Badminton</option>
+										{sports.map(function(sport) {
+											return <option key={sport.id} value={sport.id}>{sport.title}</option>
+										})}
 									</select>
 								</div>
 								<div className="offer-primary-field"></div>
