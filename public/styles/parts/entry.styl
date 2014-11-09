@@ -1,9 +1,44 @@
 .entry
-	//
+	position relative
+	padding 10px
+
+	&:active, &:focus
+		background-color #fcf8e3
+	&-title
+		color #040004
+	&-info
+		color $c-hell
+		text-align right
+
+	.close
+		absolute top right
+		padding 10px 15px
+		line-height 1
 
 
 .entry.view-detail
 	display none
+	padding 10px
+
+	.entry-title
+		text-transform uppercase
+		font-weight bold
+		letter-spacing 1px
+		text-align center
+
+	.entry-info
+		text-align left
+
+	.entry-note
+		table-layout fixed
+		&-text
+			height 54px
+			border-color $c-comp
+			box-shadow none
+		&-btn
+			padding 0
+			.btn
+				height 54px
 
 	&.is-active
 		display block

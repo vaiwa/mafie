@@ -15,17 +15,17 @@ var Entry = React.createClass({
 		var title = sports[this.props.entry.sport].title
 
 		return (
-			<div onClick={this.handleClick} className="list-group-item">
+			<a onClick={this.handleClick} className="entry list-group-item" href="#">
 				<div className="col__list col-xs-12 col-sm-12">
-					<h4 className="active__title pull-left">{title}</h4>
-					<div className="pull-left">
-						<span className="glyphicon glyphicon-map-marker"></span> {this.props.entry.place}
+					<h4 className="entry-title active__title pull-left">{title}</h4>
+					<div className="entry-info pull-right">
+						{this.props.entry.place} <span className="glyphicon glyphicon-map-marker"></span>
 						<br/>
-						<span className="glyphicon glyphicon-calendar"></span> {this.props.entry.time}
+						{this.props.entry.time} <span className="glyphicon glyphicon-calendar"></span>
 					</div>
 				</div>
 				<div className="clearfix"></div>
-			</div>
+			</a>
 		)
 	}
 })

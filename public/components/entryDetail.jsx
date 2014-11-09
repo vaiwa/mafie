@@ -15,34 +15,30 @@ var EntryDetail = React.createClass({
 
 	render: function() {
 		if(!this.props.entry) return null
+
+		var classes = this.props.classes + ' list-group-item'
 		var title = sports[this.props.entry.sport].title
 
 		return (
-			<div className="list-group-item">
-				<div className="col__list col-xs-10 col-sm-10">
-					<h4 className="sport__title pull-left">{title}</h4>
-					<div className="clearfix"></div>
-					<ul className="list-unstyled sport__info">
-						<li className="pull-left"><span className="glyphicon glyphicon-map-marker"></span> {this.props.entry.place}</li>
-						<li className="pull-left"><span className="glyphicon glyphicon-calendar"></span> {this.props.entry.time}</li>
-					</ul>
-					<div className="clearfix"></div>
-					<form role="form">
-						<div className="form-group">
-							<input type="text" className="form-control input__message" placeholder="Domluv se co a jak"/>
-						</div>
-					</form>
+			<div className={classes}>
+
+				<h4 className="entry-title list-group-item-heading">
+					<button onClick={this.handleClose} type="button" className="close"><span aria-hidden="true">&times;</span></button>
+					{title}
+				</h4>
+
+				<div className="list-group-item-text">
+					<p className="entry-info"><span className="glyphicon glyphicon-map-marker"></span> {this.props.entry.place}</p>
+					<p className="entry-info"><span className="glyphicon glyphicon-calendar"></span> {this.props.entry.time}</p>
+
+					<div className="entry-note input-group">
+						<textarea rows="2" className="entry-note-text form-control" placeholder="Domluv se co a jak" />
+						<span className="entry-note-btn input-group-btn">
+							<button className="btn btn-primary" type="button">Odešli</button>
+						</span>
+					</div>
 				</div>
-				<div className="col__list col-xs-2 col-sm-2">
-					<a onClick={this.handleClose} href="#" className="message--cancel">
-						<span className="btn btn-sm pull-right btn__cross"><span className="glyphicon glyphicon-remove-sign"></span> </span>
-					</a>
-					<div className="clearfix"></div>
-					<a href="#" className="message--send">
-						<span className="btn btn-success btn-sm pull-right btn__send-message"><span className="glyphicon glyphicon-ok-circle"></span> </span>
-					</a>
-				</div>
-				<div className="clearfix"></div>
+
 			</div>
 		)
 	}
