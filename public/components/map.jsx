@@ -6,6 +6,7 @@ var React = require('react')
 var LeafletMap = require('../js/map.coffee')()
 var geoJumper = require('../js/geoJumper')
 
+
 var PRAHA = {coordinates: [50.051611, 14.407032], type:"Point"}
 var BRNO = {coordinates: [49.19163, 16.61238], type:"Point"}
 

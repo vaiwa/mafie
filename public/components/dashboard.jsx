@@ -78,6 +78,10 @@ var Dashboard = React.createClass({
 		this.setState({ showList: true })
 	},
 
+	handleLocationJump: function(e) {
+
+	},
+
 	handleEntryClick: function(e) {
 		this.setState({ activeEntry: e, center: e.location.coordinates })
 		scroll(0,0)
@@ -109,7 +113,7 @@ var Dashboard = React.createClass({
 					<FilterSport value={this.state.filterSport} onChange={this.handleFilterSportChange} />
 				</header>
 
-				<FilterLocation onChange={this.handleFilterLocationChange} />
+				<FilterLocation onChange={this.handleFilterLocationChange} handleLocationJump={this.handleFilterLocationChange} />
 
 				<Map center={this.state.center} pins={this.state.entries} onMapClick={this.handleMapClick} onMarkerClick={this.handleMarkerClick} />
 
