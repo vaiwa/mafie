@@ -1,3 +1,5 @@
+var PRAHA = {coordinates: [50.051611, 14.407032], type:"Point"}
+
 module.exports = function(map) {
 	var geocoder = new google.maps.Geocoder();
 
@@ -12,7 +14,8 @@ module.exports = function(map) {
 						map.moveTo([loc.lat(), loc.lng()]);
 						console.log("success");
 					} else {
-						alert('Geocode was not successful for the following reason: ' + status);
+						map.moveTo(PRAHA.coordinates);
+						// alert('Geocode was not successful for the following reason: ' + status);
 					}
 				});
 			}
