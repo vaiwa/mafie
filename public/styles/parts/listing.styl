@@ -1,0 +1,39 @@
+.listing
+	position relative
+	z-index 100
+	margin-top 0
+
+	&-overbanner
+		display block
+		height 36px
+		line-height @height
+		margin-top @height * -1
+		background rgba(#413D3D, 0.75)
+		color #fff
+		font-size 16px
+		font-weight normal
+		padding 0 10px
+
+		&:hover
+			text-decoration none
+			color @color
+
+		span
+			margin-right 10px
+
+
+.listing.view-showList
+	margin-top calc(-100vh + 98px)
+	transition all 666ms
+
+	.listing-overbanner
+		display none
+
+.listing.view-detailEntry
+	margin-top -158px
+
+	.listing-overbanner
+		display none
+
+
+

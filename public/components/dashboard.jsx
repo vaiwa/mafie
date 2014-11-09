@@ -39,7 +39,8 @@ var Dashboard = React.createClass({
 
 	getInitialState: function() {
 		return {
-			entries: ENTRIES
+			entries: ENTRIES,
+			activeEntry: false
 		}
 	},
 
@@ -60,6 +61,14 @@ var Dashboard = React.createClass({
 	handleFilterLocationChange: function(location) {
 		console.log(location)
 	},
+
+	handleEntryClick: function(e) {
+		this.setState({ activeEntry: e })
+		scroll(0,0)
+	},
+	handleDetailClose: function() {
+		this.setState({ activeEntry: false})
+	},
 	handleMapClick: function(location) {
 		console.log(location)
 	},
@@ -71,14 +80,14 @@ var Dashboard = React.createClass({
 		return (
 			<div>
 				<header className="site-header">
-					<a href="./" className="site-logo">Zahra<i>jeme</i></a>
+					<a href="#/" className="site-logo">Zahra<i>jeme</i></a>
 					<FilterSport onChange={this.handleFilterSportChange} />
 				</header>
 
 				<FilterLocation onChange={this.handleFilterLocationChange} />
 
 				<Map pins={this.state.entries} onMapClick={this.handleMapClick} onMarkerClick={this.handleMarkerClick} />
-				<Listing entries={this.state.entries} />
+				<Listing entries={this.state.entries} activeEntry={this.state.activeEntry} onEntryClick={this.handleEntryClick} onDetailClose={this.handleDetailClose} />
 			</div>
 		)
 	}
