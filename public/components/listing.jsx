@@ -38,11 +38,10 @@ var Listing = React.createClass({
 		// Normal state
 		return (
 			<div className={classes}>
-
 				<a onClick={this.props.onOverbarClick} className="listing-overbanner" href="#"><span className="glyphicon glyphicon-th-list"></span>Zobraz další nápady na tréninky</a>
+						<a href="#/add" className="circle">+</a>
 
 				<div className="list_group__box list-group">
-
 					<EntryDetail classes={classesEntryDetail} entry={this.props.activeEntry} onClose={this.props.onDetailClose} onSubmit={this.props.onDetailSubmit} />
 
 					{this.props.entries.map(function(entry) {
