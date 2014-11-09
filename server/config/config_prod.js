@@ -1,3 +1,3 @@
-/**
- * Created by capaj_000 on 11/8/2014.
- */
+module.exports = {
+	mongo: 'mongodb://localhost/zahrajeme'
+};

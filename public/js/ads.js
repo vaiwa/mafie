@@ -1,12 +1,13 @@
-/**
- * @jsx React.DOM
- */
-
-
 require('fetch');
 
 module.exports = {
-
+	/**
+	 *
+	 * @param {Array<Number>} coords  Longitude and Latitude
+	 * @param {Number} radius
+	 * @param {String} [sportId}
+	 * @returns {*}
+	 */
 	getNear: function(coords, radius, sportId) {
 		coords = JSON.stringify(coords);
 		var url;
