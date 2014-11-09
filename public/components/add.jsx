@@ -18,18 +18,9 @@ var Add = React.createClass({
 	render: function() {
 		return (
 			<div>
-				<nav className="navbar navbar-inverse navbar-static" role="navigation">
-					<div className="container">
-
-						<a className="navbar-brand" href="#">Zahrajeme.cz</a>
-
-						<ul className="nav navbar-nav pull-right">
-							<li>
-								<a href="#">Zpět</a>
-							</li>
-						</ul>
-					</div>
-				</nav>
+				<header className="site-header">
+					<a href="#/" className="site-logo">Zahra<i>jeme</i></a>
+				</header>
 
 				<Map pins={[]} onMapClick={this.handleMapClick} onMarkerClick={this.handleMarkerClick} />
 
@@ -56,7 +47,7 @@ var Add = React.createClass({
 									<input className="form-control" type="text" placeholder="Kontakt"/>
 								</div>
 								<div className="col__list col-xs-6 col-sm-6">
-									<input className="form-control btn btn-success" type="submit" value="Vložit"/>
+									<input className="form-control btn btn-primary" type="submit" value="Vložit"/>
 								</div>
 								<div className="clearfix"></div>
 							</div>
