@@ -8,7 +8,7 @@ var _ = require ('../libs/lodash/dist/lodash');
 
 var FilterLocation = require('./filterLocation.jsx')
 var Map = require('./map.jsx')
-var sports = require('../shared/sports');
+var sports = _.clone(require('../shared/sports'));
 var adsService = require('../js/ads');
 
 sports.splice(0, 1);

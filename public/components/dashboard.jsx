@@ -41,21 +41,32 @@ var ENTRIES = [
 var Dashboard = React.createClass({
 
 	getInitialState: function() {
+		var self = this;
+		ads.getNear(PRAHA.coordinates, 10000000).then(function(res) {
+			setTimeout(function(){
+				var entries = JSON.parse(res.body);
+
+				self.setState({entries: entries})
+				console.log("ENTRIES FROM MONGO", entries)
+			});
+
+			self.render();
+		}, function(e) {
+			throw e;
+		});
+
 		return {
-			entries: ENTRIES,
+			entries: [],
 			filterSport: 'all',
 			showList: false,
 			activeEntry: false,
 			center: false
 		}
-		ads.getNear(PRAHA.coordinates, 10000000).then(function(entries) {
-			console.log("ENTRIES FROM MONGO", entries);
-			this.setState({entries: entries})
-		})
+
 	},
 
 	getAllEntries: function() {
-		return ENTRIES
+		return this.state.entries;
 	},
 	getEntriesBySport: function(sport) {
 		if (sport == 'all') return this.getAllEntries()

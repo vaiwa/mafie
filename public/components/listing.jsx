@@ -45,7 +45,7 @@ var Listing = React.createClass({
 					<EntryDetail classes={classesEntryDetail} entry={this.props.activeEntry} onClose={this.props.onDetailClose} onSubmit={this.props.onDetailSubmit} />
 
 					{this.props.entries.map(function(entry) {
-						return <Entry onClick={entryClickHandler} entry={entry} />
+						return <Entry key={entry._id} onClick={entryClickHandler} entry={entry} />
 					})}
 				</div>
 			</div>
