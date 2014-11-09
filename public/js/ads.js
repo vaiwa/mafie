@@ -2,17 +2,17 @@
  * @jsx React.DOM
  */
 
-var React = require('react')
-var fetch = require('fetch')
 
-var ads = React.createClass({
+require('fetch');
+
+module.exports = {
 
 	getNear: function(coords, radius, sportId) {
 		coords = JSON.stringify(coords);
 		var url;
 		if (sportId) {
 			url = '/api/ads?conditions={ "sports": {"$eq": "' + sportId + '" }, "location": { ' +
-				'"$nearSphere": {"$geometry":{"type":"Point", "coordinates" : ' +
+			'"$nearSphere": {"$geometry":{"type":"Point", "coordinates" : ' +
 			coords + '}, "$maxDistance": ' + radius	+'}} }'
 		} else {
 			url = '/api/ads?conditions={ "location": { "$nearSphere": {"$geometry":{"type":"Point", "coordinates" : ' +
@@ -30,8 +30,4 @@ var ads = React.createClass({
 			body: JSON.stringify(ad)
 		});
 	}
-
-
-});
-
-module.exports = ads
+};

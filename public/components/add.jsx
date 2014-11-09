@@ -7,6 +7,8 @@ var React = require('react')
 var FilterLocation = require('./filterLocation.jsx')
 var Map = require('./map.jsx')
 var sports = require('../shared/sports');
+var adsService = require('../js/ads');
+
 sports.splice(0, 1);
 
 var Add = React.createClass({
@@ -16,6 +18,21 @@ var Add = React.createClass({
 	},
 	handleMarkerClick: function(id) {
 		console.log(id)
+	},
+	postNewAd: function(e) {
+		var props = ['sport', 'date', 'mail'];
+		var toSend = {};
+		var refs = this.refs;
+		console.log("sport", this.refs.sport);
+		props.forEach(function(prop) {
+			toSend[prop] = refs[prop].getDOMNode().value;
+			if (!toSend[prop]) {
+				//is required
+			}
+		});
+
+		adsService.create(toSend);
+
 	},
 
 	render: function() {
@@ -35,7 +52,7 @@ var Add = React.createClass({
 							<div className="list-group-item">
 								<h4 className="offer_title">Vyberte umístění aktivity na mapě</h4>
 								<div className="col__list col-xs-6 col-sm-6">
-									<select className="form-control">
+									<select ref="sport" className="form-control">
 										{sports.map(function(sport) {
 											return <option key={sport.id} value={sport.id}>{sport.title}</option>
 										})}
@@ -43,15 +60,15 @@ var Add = React.createClass({
 								</div>
 								<div className="offer-primary-field"></div>
 								<div className="col__list col-xs-6 col-sm-6">
-									<input className="form-control" type="text" placeholder="Datum"/>
+									<input ref="date" className="form-control" type="date" step="1" required/>
 								</div>
 								<div className="clearfix"></div>
 								<div className="offer-filed--divider"></div>
 								<div className="col__list col-xs-6 col-sm-6">
-									<input className="form-control" type="text" placeholder="Kontakt"/>
+									<input ref="mail" className="form-control" type="text" placeholder="Kontakt" required/>
 								</div>
 								<div className="col__list col-xs-6 col-sm-6">
-									<input className="form-control btn btn-primary" type="submit" value="Vložit"/>
+									<input className="form-control btn btn-primary" type="submit" value="Vložit" onClick={this.postNewAd}/>
 								</div>
 								<div className="clearfix"></div>
 							</div>
