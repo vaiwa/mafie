@@ -1,6 +1,10 @@
 var plugins = require('./plugins')
-var React = require('react')
 
+// React init
+var React = require('react')
+React.initializeTouchEvents(true)
+
+// Initialize the app
 var router = require('../components/router.jsx')
 React.renderComponent(router, document.body);
 
