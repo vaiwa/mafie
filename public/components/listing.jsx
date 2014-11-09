@@ -32,7 +32,7 @@ var Listing = React.createClass({
 
 				<div className="list_group__box list-group">
 
-					<EntryDetail classes={classesEntryDetail} entry={this.props.activeEntry} onClose={this.props.onDetailClose} />
+					<EntryDetail classes={classesEntryDetail} entry={this.props.activeEntry} onClose={this.props.onDetailClose} onSubmit={this.props.onDetailSubmit} />
 
 					{this.props.entries.map(function(entry) {
 						return <Entry onClick={entryClickHandler} entry={entry} />

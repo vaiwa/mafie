@@ -84,6 +84,15 @@ var Dashboard = React.createClass({
 	handleDetailClose: function() {
 		this.setState({ activeEntry: false})
 	},
+	handleDetailSubmit: function(entry, note) {
+		console.log('Submited detail: ', entry, note)
+		// @TODO
+		this.setState({
+			activeEntry: false,
+			showList: false
+		})
+		alert('Vzkaz byl odeslán, držíme palce ať to vyjde!')
+	},
 	handleMapClick: function(location) {
 		console.log(location)
 	},
@@ -102,7 +111,9 @@ var Dashboard = React.createClass({
 				<FilterLocation onChange={this.handleFilterLocationChange} />
 
 				<Map pins={this.state.entries} onMapClick={this.handleMapClick} onMarkerClick={this.handleMarkerClick} />
-				<Listing entries={this.state.entries} activeEntry={this.state.activeEntry} showList={this.state.showList} onOverbarClick={this.handleOverbarClick} onEntryClick={this.handleEntryClick} onDetailClose={this.handleDetailClose} />
+				<Listing entries={this.state.entries} activeEntry={this.state.activeEntry} showList={this.state.showList}
+					onOverbarClick={this.handleOverbarClick} onEntryClick={this.handleEntryClick}
+					onDetailClose={this.handleDetailClose} onDetailSubmit={this.handleDetailSubmit}/>
 			</div>
 		)
 	}
