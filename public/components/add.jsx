@@ -3,6 +3,7 @@
  */
 
 var React = require('react')
+var addons = require('react/addons')
 var _ = require ('../libs/lodash/dist/lodash');
 
 var FilterLocation = require('./filterLocation.jsx')
@@ -14,9 +15,15 @@ sports.splice(0, 1);
 
 var Add = React.createClass({
 
+	getInitialState: function() {
+		return {
+			hasLocation: false
+		}
+	},
+
 	handleMapClick: function(location) {
 		console.log(location)
-		this.setState({center: location})
+		this.setState({center: location, hasLocation: true})
 	},
 	handleMarkerClick: function(id) {
 		console.log(id)
@@ -51,6 +58,9 @@ var Add = React.createClass({
 	},
 
 	render: function() {
+		var classes = React.addons.classSet({
+			'show-form-top': this.state.hasLocation
+		})
 		return (
 			<div>
 				<header className="site-header">
@@ -61,8 +71,8 @@ var Add = React.createClass({
 
 				<Map pins={[]} onMapClick={this.handleMapClick} onMarkerClick={this.handleMarkerClick} />
 
-				<div className="container">
-					<div className="row">
+				<div className={classes}>
+					
 						<div className="list_group__box--offer list-group">
 							<div className="list-group-item">
 								<h4 className="offer_title">Vyberte umístění aktivity na mapě</h4>
@@ -71,24 +81,25 @@ var Add = React.createClass({
 										{sports.map(function(sport) {
 											return <option key={sport.id} value={sport.id}>{sport.title}</option>
 										})}
-									</select>
-								</div>
-								<div className="offer-primary-field"></div>
-								<div className="col__list col-xs-6 col-sm-6">
 									<input ref="date" className="form-control" type="date" step="1" required/>
-								</div>
-								<div className="clearfix"></div>
-								<div className="offer-filed--divider"></div>
-								<div className="col__list col-xs-6 col-sm-6">
 									<input ref="mail" className="form-control" type="text" placeholder="Kontakt" required/>
-								</div>
-								<div className="col__list col-xs-6 col-sm-6">
 									<input className="form-control btn btn-primary" type="submit" value="Vložit" onClick={this.postNewAd}/>
-								</div>
-								<div className="clearfix"></div>
 							</div>
+							<div className="offer-primary-field"></div>
+							<div className="col__list col-xs-6 col-sm-6">
+								<input className="form-control" type="text" placeholder="Datum"/>
+							</div>
+							<div className="clearfix"></div>
+							<div className="offer-filed--divider"></div>
+							<div className="col__list col-xs-6 col-sm-6">
+								<input className="form-control" type="text" placeholder="Kontakt"/>
+							</div>
+							<div className="col__list col-xs-6 col-sm-6">
+								<input className="form-control btn btn-primary" type="submit" value="Vložit"/>
+							</div>
+							<div className="clearfix"></div>
 						</div>
-					</div>
+					
 				</div>
 
 			</div>
