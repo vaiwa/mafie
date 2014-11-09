@@ -56,7 +56,7 @@ var Add = React.createClass({
 		adsService.create(toSend)
 
 		alert('Nápad na trénink vložen, držíme palce ať to vyjde!')
-		location.hash = ''
+		location.href = '/'
 
 	},
 
