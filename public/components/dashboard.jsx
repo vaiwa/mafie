@@ -111,9 +111,13 @@ var Dashboard = React.createClass({
 				<FilterLocation onChange={this.handleFilterLocationChange} />
 
 				<Map pins={this.state.entries} onMapClick={this.handleMapClick} onMarkerClick={this.handleMarkerClick} />
-				<Listing entries={this.state.entries} activeEntry={this.state.activeEntry} showList={this.state.showList}
+
+				<Listing
+					entries={this.state.entries} activeEntry={this.state.activeEntry}
+					showList={this.state.showList} sport={this.state.filterSport}
 					onOverbarClick={this.handleOverbarClick} onEntryClick={this.handleEntryClick}
-					onDetailClose={this.handleDetailClose} onDetailSubmit={this.handleDetailSubmit}/>
+					onDetailClose={this.handleDetailClose} onDetailSubmit={this.handleDetailSubmit}
+				/>
 			</div>
 		)
 	}

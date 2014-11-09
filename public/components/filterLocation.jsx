@@ -10,7 +10,7 @@ var FilterLocation = React.createClass({
 			<div className="filterLocation">
 
 				<div className="input-group input-group-sm">
-					<input id="geoJumper" className="form-control" type="text" placeholder="Ukaž návrhy na tréninky poblíž adresy"/>
+					<input id="geoJumper" className="form-control" type="text" placeholder="Ukaž nápady na tréninky poblíž adresy"/>
 
 					<span className="input-group-btn">
 						<button className="btn btn-default" type="button"><i className="glyphicon glyphicon-search"></i></button>
