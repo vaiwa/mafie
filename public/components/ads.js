@@ -3,6 +3,7 @@
  */
 
 var React = require('react')
+var fetch = require('fetch')
 
 var ads = React.createClass({
 
