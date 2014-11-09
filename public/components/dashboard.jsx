@@ -40,6 +40,8 @@ var Dashboard = React.createClass({
 	getInitialState: function() {
 		return {
 			entries: ENTRIES,
+			filterSport: 'all',
+			showList: false,
 			activeEntry: false
 		}
 	},
@@ -55,11 +57,24 @@ var Dashboard = React.createClass({
 		})
 	},
 
+	handleLogoClick: function(e) {
+		e.preventDefault()
+		this.replaceState(this.getInitialState())
+	},
+
 	handleFilterSportChange: function(sport) {
-		this.setState({ entries: this.getEntriesBySport(sport) })
+		this.setState({
+			filterSport: sport,
+			entries: this.getEntriesBySport(sport)
+		})
 	},
 	handleFilterLocationChange: function(location) {
 		console.log(location)
+	},
+
+	handleOverbarClick: function(e) {
+		e.preventDefault()
+		this.setState({ showList: true })
 	},
 
 	handleEntryClick: function(e) {
@@ -80,14 +95,14 @@ var Dashboard = React.createClass({
 		return (
 			<div>
 				<header className="site-header">
-					<a href="#/" className="site-logo">Zahra<i>jeme</i></a>
-					<FilterSport onChange={this.handleFilterSportChange} />
+					<a onClick={this.handleLogoClick} href="#/" className="site-logo">Zahra<i>jeme</i></a>
+					<FilterSport value={this.state.filterSport} onChange={this.handleFilterSportChange} />
 				</header>
 
 				<FilterLocation onChange={this.handleFilterLocationChange} />
 
 				<Map pins={this.state.entries} onMapClick={this.handleMapClick} onMarkerClick={this.handleMarkerClick} />
-				<Listing entries={this.state.entries} activeEntry={this.state.activeEntry} onEntryClick={this.handleEntryClick} onDetailClose={this.handleDetailClose} />
+				<Listing entries={this.state.entries} activeEntry={this.state.activeEntry} showList={this.state.showList} onOverbarClick={this.handleOverbarClick} onEntryClick={this.handleEntryClick} onDetailClose={this.handleDetailClose} />
 			</div>
 		)
 	}

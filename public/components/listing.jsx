@@ -10,23 +10,12 @@ var EntryDetail = require('./entryDetail.jsx')
 
 var Listing = React.createClass({
 
-	getInitialState: function() {
-		return {
-			showList: false
-		}
-	},
-
-	handleOverbarClick: function(e) {
-		e.preventDefault()
-		this.setState({ showList: true })
-	},
-
 	render: function() {
 		var entryClickHandler = this.props.onEntryClick
 
 		var classes = React.addons.classSet({
 			'listing': true,
-			'view-showList': this.state.showList,
+			'view-showList': this.props.showList,
 			'view-detailEntry': this.props.activeEntry
 		})
 		var classesEntryDetail = React.addons.classSet({
@@ -39,7 +28,7 @@ var Listing = React.createClass({
 		return (
 			<div className={classes}>
 
-				<a onClick={this.handleOverbarClick} className="listing-overbanner" href="#"><span className="glyphicon glyphicon-th-list"></span>Zobraz další návrhy na tréninky</a>
+				<a onClick={this.props.onOverbarClick} className="listing-overbanner" href="#"><span className="glyphicon glyphicon-th-list"></span>Zobraz další návrhy na tréninky</a>
 
 				<div className="list_group__box list-group">
 
