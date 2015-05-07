@@ -7,7 +7,7 @@ var config = require('./server/config/config_hackathon');
 
 mongoose.connect(config.mongo);
 
-var  models = require('./server/models/models');
+var models = require('./server/models/models');
 
 //db2.ads.ensureIndex({ gps: "2dsphere"});
 mongoose.set('debug', true);

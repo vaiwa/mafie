@@ -1,9 +1,6 @@
-zahrajeme-cz
+mafia
 ============
 
-zahrajeme.cz
-
-\- hledání spoluhráčů sportovních i jiných her
 
 ## Backend
 \- node.js
@@ -17,7 +14,7 @@ Vychází z [Frontbase](http://frontbase.org/) dev stacku, obohaceného o React.
 
 # Autoři
 
-- Matěj Šimek [@enzy](https://github.com/enzy) ([http://www.matejsimek.cz](www.matejsimek.cz))
-- Jan Návrat https://github.com/navratj
+- Matěj Šimek https://github.com/enzy
+- Jan Návrat [https://github.com/vaiwa](https://github.com/vaiwa)
 - Jiří Špác https://github.com/capaj
 - Tomas Michna https://github.com/Tomichi

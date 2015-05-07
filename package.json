@@ -1,7 +1,7 @@
 {
-  "name": "zahrajeme-cz",
-  "version": "1.0.0",
-  "description": "web portal for connecting people for sports",
+  "name": "mafie",
+  "version": "0.0.1",
+  "description": "mafia app game",
   "main": "index.js",
   "scripts": {
     "prepublish": "bower install --config.interactive=false && grunt",
@@ -10,17 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/CzechHackathon2014/zahrajeme-cz.git"
+    "url": "https://github.com/vaiwa/mafia.git"
   },
-  "keywords": [
-    "hackathon"
-  ],
-  "author": "capajj@gmail.com",
+  "keywords": ["hackathon"],
+  "author": "jan.navrat@gmail.com",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/CzechHackathon2014/zahrajeme-cz/issues"
-  },
-  "homepage": "https://github.com/CzechHackathon2014/zahrajeme-cz",
+  "bugs": {"url": "https://github.com/vaiwa/mafia/issues"},
+  "homepage": "https://github.com/vaiwa/mafia",
   "dependencies": {
     "baucis": "^1.0.0-candidate.12",
     "baucis-swagger": "^1.0.0-prerelease.1",
